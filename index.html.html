@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>خمس سنين سوا | 25 نوفمبر</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Arabic Google Fonts: Cairo & Aref Ruqaa & Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-velvet: #0b0710;
+      --card-velvet: rgba(24, 15, 34, 0.78);
+      --gold-champagne: #f5d08a;
+      --rose-gold: #e899a8;
+      --crimson-warm: #e11d48;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-velvet);
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-velvet);
+      color: #fdf8f5;
+      font-family: 'Cairo', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .font-ruqaa {
+      font-family: 'Aref Ruqaa', serif;
+    }
+
+    .font-amiri {
+      font-family: 'Amiri', serif;
+    }
+
+    /* خلفية مخملية مع إضاءة بوكيه دافئة */
+    .velvet-bg {
+      background:
+        radial-gradient(circle at 20% 15%, rgba(225, 29, 72, 0.14) 0%, transparent 45%),
+        radial-gradient(circle at 80% 35%, rgba(245, 208, 138, 0.11) 0%, transparent 48%),
+        radial-gradient(circle at 50% 80%, rgba(157, 23, 77, 0.16) 0%, transparent 55%),
+        #0b0710;
+    }
+
+    /* بطاقة زجاجية مخملية */
+    .velvet-card {
+      background: linear-gradient(155deg, rgba(32, 20, 44, 0.85), rgba(15, 9, 22, 0.92));
+      border: 1px solid rgba(245, 208, 138, 0.25);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.65),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    /* توهج النصوص الذهبية */
+    .gold-shimmer-text {
+      background: linear-gradient(90deg, #f5d08a 0%, #fff2d6 45%, #e899a8 75%, #f5d08a 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerText 5s linear infinite;
+    }
+
+    @keyframes shimmerText {
+      to { background-position: 200% center; }
+    }
+
+    /* الخيط الذهبي للخط الزمني */
+    .timeline-thread {
+      background: linear-gradient(
+        180deg,
+        rgba(245, 208, 138, 0) 0%,
+        rgba(245, 208, 138, 0.75) 12%,
+        rgba(232, 153, 168, 0.85) 50%,
+        rgba(245, 208, 138, 0.75) 88%,
+        rgba(245, 208, 138, 0) 100%
+      );
+      box-shadow: 0 0 16px rgba(245, 208, 138, 0.45);
+    }
+
+    /* عقدة السنة على الخط الزمني */
+    .timeline-node {
+      background: radial-gradient(circle, #fff3d1 0%, #f5d08a 55%, #b45309 100%);
+      box-shadow: 0 0 0 5px rgba(245, 208, 138, 0.16), 0 0 20px rgba(245, 208, 138, 0.75);
+    }
+
+    /* حركات ظهور البطاقات عند التمرير */
+    .reveal-chapter {
+      opacity: 0;
+      transform: translateY(32px) scale(0.97);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-chapter.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* زر البدء الذهبي */
+    .btn-champagne {
+      background: linear-gradient(135deg, #be123c 0%, #9f1239 50%, #881337 100%);
+      border: 1px solid rgba(245, 208, 138, 0.6);
+      box-shadow: 0 10px 30px rgba(225, 29, 72, 0.35), 0 0 18px rgba(245, 208, 138, 0.2);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-champagne:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(225, 29, 72, 0.55), 0 0 24px rgba(245, 208, 138, 0.35);
+    }
+
+    .btn-champagne:active {
+      transform: scale(0.97);
+    }
+
+    /* حاوية بطاقة الكشط */
+    .scratch-wrapper {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1.5px solid rgba(245, 208, 138, 0.55);
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.75), 0 0 30px rgba(245, 208, 138, 0.2);
+    }
+
+    #scratchCanvas {
+      touch-action: none;
+      cursor: grab;
+      transition: opacity 0.85s ease;
+    }
+
+    #scratchCanvas:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body class="velvet-bg relative min-h-screen selection:bg-rose-500/30 selection:text-amber-200">
+
+  <!-- كانفاس جزيئات البوكيه والنجوم الدافئة بالخلفية -->
+  <canvas id="bokehCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <!-- كانفاس الألعاب النارية الاحتفالية (فوق كل العناصر عند الكشط) -->
+  <canvas id="fireworksCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-50"></canvas>
+
+  <!-- =========================================================
+       القسم 1: الواجهة الافتتاحية + عداد الحب الحي بالثانية
+  ========================================================== -->
+  <section class="relative z-10 min-h-screen flex flex-col justify-center items-center px-4 py-12 text-center">
+    <div class="max-w-2xl mx-auto w-full">
+      
+      <!-- شارة التاريخ -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-300/10 border border-amber-300/30 mb-6 backdrop-blur-md">
+        <i class="fa-solid fa-sparkles text-amber-300 text-xs"></i>
+        <span class="text-xs sm:text-sm font-semibold text-amber-200 tracking-wide">25 نوفمبر 2021 — 25 نوفمبر 2026</span>
+      </div>
+
+      <!-- العنوان الشاعري -->
+      <h1 class="font-ruqaa text-4xl sm:text-6xl md:text-7xl gold-shimmer-text leading-tight mb-4 py-1">
+        قصتنا بخمس سنين
+      </h1>
+
+      <p class="font-amiri text-xl sm:text-2xl text-rose-100/85 max-w-lg mx-auto leading-relaxed mb-8">
+        خمس سنين مرقوا وإنتي قلبي، وأجمل فصل انكتب بعمري كلو.. كل لحظة معك كانت بداية جديدة لحياتي.
+      </p>
+
+      <!-- عداد الحب الحي (منذ 25 نوفمبر 2021) -->
+      <div class="velvet-card rounded-3xl p-5 sm:p-7 mb-9 max-w-xl mx-auto">
+        <p class="text-xs sm:text-sm text-amber-200/80 font-semibold mb-4 flex items-center justify-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+          <span>منذ أن بدأت حكايتنا معا وحتى هذه اللحظة:</span>
+        </p>
+
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5 sm:gap-3" id="loveCounterGrid">
+          <div class="bg-white/5 border border-amber-200/15 rounded-2xl py-3 px-2">
+            <div id="cntYears" class="text-2xl sm:text-3xl font-extrabold text-amber-300">5</div>
+            <div class="text-[11px] sm:text-xs text-rose-100/70 mt-0.5">سنوات</div>
+          </div>
+          <div class="bg-white/5 border border-amber-200/15 rounded-2xl py-3 px-2">
+            <div id="cntMonths" class="text-2xl sm:text-3xl font-extrabold text-rose-200">0</div>
+            <div class="text-[11px] sm:text-xs text-rose-100/70 mt-0.5">أشهر</div>
+          </div>
+          <div class="bg-white/5 border border-amber-200/15 rounded-2xl py-3 px-2">
+            <div id="cntDays" class="text-2xl sm:text-3xl font-extrabold text-amber-300">0</div>
+            <div class="text-[11px] sm:text-xs text-rose-100/70 mt-0.5">أيام</div>
+          </div>
+          <div class="bg-white/5 border border-amber-200/15 rounded-2xl py-3 px-2">
+            <div id="cntHours" class="text-2xl sm:text-3xl font-extrabold text-rose-200">0</div>
+            <div class="text-[11px] sm:text-xs text-rose-100/70 mt-0.5">ساعات</div>
+          </div>
+          <div class="bg-white/5 border border-amber-200/15 rounded-2xl py-3 px-2">
+            <div id="cntMinutes" class="text-2xl sm:text-3xl font-extrabold text-amber-300">0</div>
+            <div class="text-[11px] sm:text-xs text-rose-100/70 mt-0.5">دقائق</div>
+          </div>
+          <div class="bg-white/5 border border-rose-400/30 rounded-2xl py-3 px-2">
+            <div id="cntSeconds" class="text-2xl sm:text-3xl font-extrabold text-rose-400">0</div>
+            <div class="text-[11px] sm:text-xs text-rose-100/70 mt-0.5">ثوانٍ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- زر بدء الرحلة -->
+      <a href="#timelineSection" class="btn-champagne inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-base sm:text-lg">
+        <span>ابدئي الرحلة</span>
+        <span class="text-xl">✨</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       القسم 2: الخط الزمني التفاعلي للسنوات الخمس (5 فصول)
+  ========================================================== -->
+  <section id="timelineSection" class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 pt-10 pb-20">
+    <div class="text-center mb-14">
+      <span class="text-xs uppercase tracking-widest text-amber-300/80 font-bold">فصول حكايتنا</span>
+      <h2 class="font-ruqaa text-3xl sm:text-5xl text-amber-200 mt-2">خمس محطات من العمر</h2>
+      <p class="text-sm text-rose-100/70 mt-2">اكبسي على أي صورة لتكبريها وتشوفي الذكرى كاملة</p>
+    </div>
+
+    <!-- حاوية الخط الزمني -->
+    <div class="relative">
+      <!-- الخيط الذهبي العمودي -->
+      <div class="timeline-thread absolute top-0 bottom-0 right-5 sm:right-1/2 sm:translate-x-1/2 w-[2px]"></div>
+
+      <!-- قائمة الفصول (يتم توليدها ديناميكياً بالـ JS) -->
+      <div id="chaptersContainer" class="space-y-12 sm:space-y-16"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       القسم 3: بطاقة الكشط الذهبية التفاعلية (الختام)
+  ========================================================== -->
+  <section id="finaleSection" class="relative z-10 max-w-xl mx-auto px-4 sm:px-6 pt-6 pb-24 text-center">
+    <div class="mb-7">
+      <span class="inline-block px-3.5 py-1 rounded-full bg-rose-500/15 border border-rose-400/30 text-rose-200 text-xs font-bold mb-3">
+        اللمسة الأخيرة ✨
+      </span>
+      <h2 class="font-ruqaa text-3xl sm:text-4xl text-amber-200 mb-2">
+        رسالة مخباية الك
+      </h2>
+      <p id="scratchInstruction" class="text-sm sm:text-base text-rose-100/80">
+        امسحي البطاقة بإصبعك لتكتشفي رسالتي  💛
+      </p>
+    </div>
+
+    <!-- بطاقة الكشط -->
+    <div class="scratch-wrapper w-full max-w-md mx-auto aspect-[16/11] sm:aspect-[16/10] bg-gradient-to-br from-[#23112e] via-[#170b21] to-[#2b1226] flex items-center justify-center p-6 sm:p-8">
+      
+      <!-- الرسالة السرية المخفية تحت الطبقة الذهبية -->
+      <div class="text-center select-none">
+        <div class="text-3xl sm:text-4xl mb-3">💍❤️</div>
+        <h3 class="font-ruqaa text-2xl sm:text-3xl text-amber-300 mb-3">
+          كل عام وإنتي حبيبتي
+        </h3>
+        <p class="font-amiri text-lg sm:text-xl text-rose-50 leading-relaxed">
+          لو عاد فيني الزمن خمس سنين لورا، رح أرجع أختارك إنتي بكل مرة.. عقبال العمر كله سوا يا أجمل قدر بحياتي ..انتي روحي وعمري كلو والله..
+        </p>
+        <p class="text-xs text-amber-300/85 font-bold mt-3 tracking-wider">25 / 11 • </p>
+      </div>
+
+      <!-- طبقة القصدير الذهبي القابلة للكشط -->
+      <canvas id="scratchCanvas" class="absolute inset-0 w-full h-full z-20"></canvas>
+    </div>
+
+    <!-- زر إعادة الألعاب النارية (يظهر بعد الكشط) -->
+    <div id="celebrateActions" class="mt-7 opacity-0 pointer-events-none transition-all duration-700 transform translate-y-3">
+      <button id="replayFireworksBtn" class="btn-champagne px-7 py-3 rounded-full text-white font-bold text-sm sm:text-base inline-flex items-center gap-2 cursor-pointer">
+        <span>قوصي الألعاب النارية كمان</span>
+        <span>🎆</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       عارض الصور بملء الشاشة (Lightbox)
+  ========================================================== -->
+  <div id="lightboxModal" class="fixed inset-0 z-40 hidden items-center justify-center p-4 bg-black/85 backdrop-blur-lg opacity-0 transition-opacity duration-300">
+    <div class="relative w-full max-w-lg velvet-card rounded-3xl p-4 sm:p-5 text-center">
+      <button id="closeLightboxBtn" aria-label="إغلاق" class="absolute -top-3 -left-3 w-10 h-10 rounded-full bg-rose-600 text-white border border-amber-300/60 flex items-center justify-center shadow-lg cursor-pointer hover:bg-rose-500 transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="w-full aspect-[4/4.3] rounded-2xl overflow-hidden bg-black/40 mb-4">
+        <img id="lightboxImg" src="" alt="ذكرى مكبرة" class="w-full h-full object-cover" />
+      </div>
+
+      <span id="lightboxYear" class="text-xs font-bold text-amber-300 tracking-wide"></span>
+      <h3 id="lightboxTitle" class="font-ruqaa text-2xl text-white mt-1 mb-2"></h3>
+      <p id="lightboxDesc" class="font-amiri text-lg sm:text-xl text-rose-100/90 leading-relaxed"></p>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * 1. بيانات الفصول الخمسة للخط الزمني (مرتبطة بالصور 1.jpg إلى 5.jpg)
+     */
+    const chapters = [
+      {
+        year: 'السنة الأولى • 2021 - 2022',
+        title: 'بداية حكايتنا',
+        image: '1.jpg',
+        caption: 'من أول نظرة وأول ضحكة سوا، حسيت انو الدنيا فتحت لي باب جديد كلو دفا وأمان.',
+        fallbackColors: ['#3b1236', '#1c0b24']
+      },
+      {
+        year: 'السنة الثانية • 2022 - 2023',
+        title: 'تفاصيلنا الصغيرة',
+        image: '2.jpg',
+        caption: 'تعلّمنا إن السعادة مو بالمكان، السعادة هي انو نكون سوا.',
+        fallbackColors: ['#431432', '#1f0c26']
+      },
+      {
+        year: 'السنة الثالثة • 2023 - 2024',
+        title: ' مواقف غريبة',
+        image: '3.jpg',
+        caption: 'بكل مشوار وبكل لحظة عفوية، كنتِ إنتي الحدا اللي بيروّق بالي مهما تعبت.',
+        fallbackColors: ['#4a152e', '#210c24']
+      },
+      {
+        year: 'السنة الرابعة • 2024 - 2025',
+        title: 'هون بلش حبك الي ',
+        image: '4.jpg',
+        caption: 'صار بيناتنا لغة خاصة نظرات وحا، وذكريات بتخليني أبتسم لحالي كل ما تذكرتها.',
+        fallbackColors: ['#3d163b', '#190b24']
+      },
+      {
+        year: 'السنة الخامسة • 2025 - 2026',
+        title: 'خمس سنوات.. والعمر كله',
+        image: '5.jpg',
+        caption: 'اليوم منكمل 5 سنين مع بعض، ولسه قلبي بيدق إلك متل أول يوم  ولسا ايدي بترجف نفس الرجفة ❤️',
+        fallbackColors: ['#4c1634', '#1d0a22']
+      }
+    ];
+
+    /**
+     * توليد بطاقة SVG فنية بديلة في حال لم يتم رفع 1.jpg - 5.jpg بعد
+     */
+    function createArtisticFallback(index, title, year, colors) {
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="600" height="640" viewBox="0 0 600 640">
+          <defs>
+            <linearGradient id="g${index}" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="${colors[0]}"/>
+              <stop offset="100%" stop-color="${colors[1]}"/>
+            </linearGradient>
+          </defs>
+          <rect width="600" height="640" fill="url(#g${index})"/>
+          <circle cx="300" cy="260" r="140" fill="rgba(245, 208, 138, 0.08)"/>
+          <circle cx="300" cy="260" r="95" fill="rgba(225, 29, 72, 0.14)" stroke="rgba(245, 208, 138, 0.45)" stroke-width="2"/>
+          <path d="M300 302 C275 282 242 260 242 232 C242 214 256 200 274 200 C286 200 295 206 300 215 C305 206 314 200 326 200 C344 200 358 214 358 232 C358 260 325 282 300 302 Z" fill="#f5d08a"/>
+          <text x="300" y="405" text-anchor="middle" fill="#fde68a" font-family="sans-serif" font-size="24" font-weight="bold">${title}</text>
+          <text x="300" y="445" text-anchor="middle" fill="#fecdd3" font-family="sans-serif" font-size="16" opacity="0.85">${year}</text>
+          <text x="300" y="510" text-anchor="middle" fill="rgba(255,255,255,0.55)" font-family="monospace" font-size="14">صورة الذكرى (${index + 1}.jpg)</text>
+        </svg>
+      `;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    }
+
+    // بناء عناصر الخط الزمني في الصفحة
+    const chaptersContainer = document.getElementById('chaptersContainer');
+    chapters.forEach((ch, idx) => {
+      const isEven = idx % 2 === 1;
+      const fallbackSrc = createArtisticFallback(idx, ch.title, ch.year, ch.fallbackColors);
+
+      const wrapper = document.createElement('article');
+      wrapper.className = `reveal-chapter relative pr-12 sm:pr-0 sm:flex sm:items-center ${
+        isEven ? 'sm:flex-row-reverse' : 'sm:flex-row'
+      }`;
+
+      wrapper.innerHTML = `
+        <!-- العقدة الذهبية على الخط -->
+        <div class="timeline-node absolute top-6 right-[13px] sm:right-1/2 sm:translate-x-1/2 w-3.5 h-3.5 rounded-full z-10"></div>
+
+        <!-- البطاقة -->
+        <div class="w-full sm:w-[46%] velvet-card rounded-3xl p-4 sm:p-5 transition hover:border-amber-300/45">
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-bold text-amber-300 bg-amber-300/10 px-3 py-1 rounded-full border border-amber-300/25">
+              ${ch.year}
+            </span>
+            <span class="text-xs text-rose-200/60 font-semibold">فصل 0${idx + 1}</span>
+          </div>
+
+          <!-- إطار الصورة القابل للنقر -->
+          <div class="photo-trigger relative w-full aspect-[4/4.2] rounded-2xl overflow-hidden cursor-pointer group mb-4 border border-white/10" data-index="${idx}">
+            <img
+              src="${ch.image}"
+              alt="${ch.title}"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent opacity-80"></div>
+            <div class="absolute bottom-3 left-3 w-8 h-8 rounded-full bg-black/50 backdrop-blur-md border border-amber-300/40 text-amber-200 flex items-center justify-center text-xs">
+              <i class="fa-solid fa-expand"></i>
+            </div>
+          </div>
+
+          <h3 class="font-ruqaa text-2xl text-amber-200 mb-1.5">${ch.title}</h3>
+          <p class="font-amiri text-lg text-rose-100/85 leading-relaxed">${ch.caption}</p>
+        </div>
+      `;
+
+      const imgEl = wrapper.querySelector('img');
+      imgEl.onerror = () => {
+        imgEl.onerror = null;
+        imgEl.src = fallbackSrc;
+      };
+
+      chaptersContainer.appendChild(wrapper);
+    });
+
+    // مراقب الظهور السلس عند التمرير (IntersectionObserver)
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    document.querySelectorAll('.reveal-chapter').forEach((el) => observer.observe(el));
+
+    /**
+     * 2. عارض الصور المكبر (Lightbox)
+     */
+    const lightboxModal = document.getElementById('lightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxYear = document.getElementById('lightboxYear');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const closeLightboxBtn = document.getElementById('closeLightboxBtn');
+
+    document.querySelectorAll('.photo-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const idx = Number(trigger.dataset.index);
+        const ch = chapters[idx];
+        const currentImgSrc = trigger.querySelector('img').src;
+
+        lightboxImg.src = currentImgSrc;
+        lightboxYear.textContent = ch.year;
+        lightboxTitle.textContent = ch.title;
+        lightboxDesc.textContent = ch.caption;
+
+        lightboxModal.classList.remove('hidden');
+        lightboxModal.classList.add('flex');
+        requestAnimationFrame(() => lightboxModal.classList.remove('opacity-0'));
+      });
+    });
+
+    function closeLightbox() {
+      lightboxModal.classList.add('opacity-0');
+      setTimeout(() => {
+        lightboxModal.classList.add('hidden');
+        lightboxModal.classList.remove('flex');
+      }, 280);
+    }
+
+    closeLightboxBtn.addEventListener('click', closeLightbox);
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+
+    /**
+     * 3. عداد الحب الحي منذ 25 نوفمبر 2021
+     */
+    const startDate = new Date(2021, 10, 25, 0, 0, 0); // الشهر 10 = نوفمبر (0-indexed)
+
+    function updateLoveCounter() {
+      const now = new Date();
+      let years = now.getFullYear() - startDate.getFullYear();
+      let months = now.getMonth() - startDate.getMonth();
+      let days = now.getDate() - startDate.getDate();
+      let hours = now.getHours() - startDate.getHours();
+      let minutes = now.getMinutes() - startDate.getMinutes();
+      let seconds = now.getSeconds() - startDate.getSeconds();
+
+      if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+      }
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+      if (days < 0) {
+        const prevMonthDays = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
+        days += prevMonthDays;
+        months--;
+      }
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
+      document.getElementById('cntYears').textContent = Math.max(0, years);
+      document.getElementById('cntMonths').textContent = Math.max(0, months);
+      document.getElementById('cntDays').textContent = Math.max(0, days);
+      document.getElementById('cntHours').textContent = String(Math.max(0, hours)).padStart(2, '0');
+      document.getElementById('cntMinutes').textContent = String(Math.max(0, minutes)).padStart(2, '0');
+      document.getElementById('cntSeconds').textContent = String(Math.max(0, seconds)).padStart(2, '0');
+    }
+
+    updateLoveCounter();
+    setInterval(updateLoveCounter, 1000);
+
+    /**
+     * 4. بطاقة الكشط الذهبية التفاعلية (HTML5 Canvas Scratch-Off)
+     */
+    const scratchCanvas = document.getElementById('scratchCanvas');
+    const sCtx = scratchCanvas.getContext('2d', { willReadFrequently: true });
+    const scratchInstruction = document.getElementById('scratchInstruction');
+    const celebrateActions = document.getElementById('celebrateActions');
+    const replayFireworksBtn = document.getElementById('replayFireworksBtn');
+
+    let isScratching = false;
+    let isRevealed = false;
+
+    function initScratchCard() {
+      const rect = scratchCanvas.parentElement.getBoundingClientRect();
+      scratchCanvas.width = rect.width;
+      scratchCanvas.height = rect.height;
+
+      // تدرج معدني ذهبي وردي فاخر
+      const grad = sCtx.createLinearGradient(0, 0, scratchCanvas.width, scratchCanvas.height);
+      grad.addColorStop(0, '#d4a359');
+      grad.addColorStop(0.35, '#f5d08a');
+      grad.addColorStop(0.7, '#e5989b');
+      grad.addColorStop(1, '#b58338');
+
+      sCtx.globalCompositeOperation = 'source-over';
+      sCtx.fillStyle = grad;
+      sCtx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+
+      // نقوش زخرفية ناعمة فوق الطبقة الذهبية
+      sCtx.strokeStyle = 'rgba(255, 255, 255, 0.25)';
+      sCtx.lineWidth = 2;
+      sCtx.strokeRect(12, 12, scratchCanvas.width - 24, scratchCanvas.height - 24);
+
+      // نص إرشادي محفور على البطاقة
+      sCtx.fillStyle = '#3b1828';
+      sCtx.textAlign = 'center';
+      sCtx.textBaseline = 'middle';
+      sCtx.font = 'bold 20px "Cairo", sans-serif';
+      sCtx.fillText('✨ امسحي هنا بإصبعكِ ✨', scratchCanvas.width / 2, scratchCanvas.height / 2 - 12);
+      sCtx.font = '600 14px "Cairo", sans-serif';
+      sCtx.fillText('مفاجأة الذكرى الخامسة 25 / 11', scratchCanvas.width / 2, scratchCanvas.height / 2 + 18);
+    }
+
+    function getPointerPos(e) {
+      const rect = scratchCanvas.getBoundingClientRect();
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+      return {
+        x: clientX - rect.left,
+        y: clientY - rect.top
+      };
+    }
+
+    function scratchAt(x, y) {
+      if (isRevealed) return;
+      sCtx.globalCompositeOperation = 'destination-out';
+      sCtx.beginPath();
+      sCtx.arc(x, y, 26, 0, Math.PI * 2);
+      sCtx.fill();
+    }
+
+    function checkScratchPercentage() {
+      if (isRevealed) return;
+      const imgData = sCtx.getImageData(0, 0, scratchCanvas.width, scratchCanvas.height).data;
+      let transparentPixels = 0;
+      const step = 16; // فحص عينة سريعة للأداء العالي
+      let totalSampled = 0;
+
+      for (let i = 3; i < imgData.length; i += 4 * step) {
+        totalSampled++;
+        if (imgData[i] === 0) transparentPixels++;
+      }
+
+      const ratio = transparentPixels / totalSampled;
+      if (ratio >= 0.45) {
+        isRevealed = true;
+        scratchCanvas.style.opacity = '0';
+        scratchCanvas.style.pointerEvents = 'none';
+        scratchInstruction.textContent = 'دام حبنا العمر كله يا أغلى إنسانة ❤️';
+        celebrateActions.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+        triggerGrandFireworks();
+      }
+    }
+
+    scratchCanvas.addEventListener('pointerdown', (e) => {
+      isScratching = true;
+      const pos = getPointerPos(e);
+      scratchAt(pos.x, pos.y);
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (!isScratching || isRevealed) return;
+      const pos = getPointerPos(e);
+      scratchAt(pos.x, pos.y);
+    });
+
+    window.addEventListener('pointerup', () => {
+      if (!isScratching) return;
+      isScratching = false;
+      checkScratchPercentage();
+    });
+
+    /**
+     * 5. نظام البوكيه الخلفي + الألعاب النارية الاحتفالية
+     */
+    const bokehCanvas = document.getElementById('bokehCanvas');
+    const bCtx = bokehCanvas.getContext('2d');
+    const fwCanvas = document.getElementById('fireworksCanvas');
+    const fwCtx = fwCanvas.getContext('2d');
+
+    let bokehOrbs = [];
+    let fwParticles = [];
+    let fireworksActiveUntil = 0;
+
+    function resizeAllCanvases() {
+      bokehCanvas.width = fwCanvas.width = window.innerWidth;
+      bokehCanvas.height = fwCanvas.height = window.innerHeight;
+
+      const orbCount = Math.min(26, Math.floor(window.innerWidth / 45));
+      bokehOrbs = Array.from({ length: orbCount }, () => ({
+        x: Math.random() * bokehCanvas.width,
+        y: Math.random() * bokehCanvas.height,
+        r: 20 + Math.random() * 65,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: -0.15 - Math.random() * 0.25,
+        color: Math.random() > 0.45 ? 'rgba(245, 208, 138, 0.06)' : 'rgba(225, 29, 72, 0.07)'
+      }));
+
+      if (!isRevealed) initScratchCard();
+    }
+
+    function spawnBurst(x, y) {
+      const colors = ['#f5d08a', '#ff4d8d', '#fda4af', '#fde047', '#ffffff'];
+      const count = 52;
+      for (let i = 0; i < count; i++) {
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.2;
+        const speed = 1.8 + Math.random() * 4.5;
+        fwParticles.push({
+          x,
+          y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+          alpha: 1,
+          decay: 0.014 + Math.random() * 0.012,
+          color: colors[i % colors.length],
+          size: 2 + Math.random() * 2.2
+        });
+      }
+    }
+
+    function triggerGrandFireworks() {
+      fireworksActiveUntil = performance.now() + 5500;
+      spawnBurst(fwCanvas.width * 0.3, fwCanvas.height * 0.35);
+      setTimeout(() => spawnBurst(fwCanvas.width * 0.7, fwCanvas.height * 0.3), 250);
+      setTimeout(() => spawnBurst(fwCanvas.width * 0.5, fwCanvas.height * 0.25), 550);
+    }
+
+    replayFireworksBtn.addEventListener('click', triggerGrandFireworks);
+
+    let lastAutoBurst = 0;
+    function renderLoops(now) {
+      // 1. رسم البوكيه الهادئ
+      bCtx.clearRect(0, 0, bokehCanvas.width, bokehCanvas.height);
+      for (const orb of bokehOrbs) {
+        orb.x += orb.vx;
+        orb.y += orb.vy;
+        if (orb.y + orb.r < 0) orb.y = bokehCanvas.height + orb.r;
+        if (orb.x - orb.r > bokehCanvas.width) orb.x = -orb.r;
+        if (orb.x + orb.r < 0) orb.x = bokehCanvas.width + orb.r;
+
+        bCtx.beginPath();
+        bCtx.arc(orb.x, orb.y, orb.r, 0, Math.PI * 2);
+        bCtx.fillStyle = orb.color;
+        bCtx.fill();
+      }
+
+      // 2. رسم الألعاب النارية الاحتفالية
+      fwCtx.clearRect(0, 0, fwCanvas.width, fwCanvas.height);
+      if (now < fireworksActiveUntil && now - lastAutoBurst > 650) {
+        spawnBurst(
+          fwCanvas.width * (0.2 + Math.random() * 0.6),
+          fwCanvas.height * (0.18 + Math.random() * 0.42)
+        );
+        lastAutoBurst = now;
+      }
+
+      for (let i = fwParticles.length - 1; i >= 0; i--) {
+        const p = fwParticles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.045;
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+        p.alpha -= p.decay;
+
+        if (p.alpha <= 0) {
+          fwParticles.splice(i, 1);
+          continue;
+        }
+
+        fwCtx.save();
+        fwCtx.globalAlpha = p.alpha;
+        fwCtx.beginPath();
+        fwCtx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        fwCtx.fillStyle = p.color;
+        fwCtx.shadowBlur = 12;
+        fwCtx.shadowColor = p.color;
+        fwCtx.fill();
+        fwCtx.restore();
+      }
+
+      requestAnimationFrame(renderLoops);
+    }
+
+    window.addEventListener('resize', resizeAllCanvases);
+    window.onload = () => {
+      resizeAllCanvases();
+      requestAnimationFrame(renderLoops);
+    };
+  </script>
+</body>
+</html>
